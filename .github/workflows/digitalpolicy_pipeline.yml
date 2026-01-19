@@ -33,6 +33,6 @@ jobs:
           cp .env.example .env
           php artisan key:generate
 
-      - name: Run application
+      - name: Run Tests
         run: |
-            php artisan serve
+            php artisan test
