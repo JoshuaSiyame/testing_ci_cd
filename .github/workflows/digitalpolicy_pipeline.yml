@@ -52,6 +52,3 @@ jobs:
           script: |
             cd ${{ secrets.SERVER_PATH }}
             git pull origin master
-            composer install --no-dev --optimize-autoloader
-            php artisan migrate --force
-            php artisan optimize
