@@ -41,11 +41,11 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
 
     steps:
-      - name: Deploy
+      - name: Deploy (local path on runner machine)
         shell: bash
         run: |
           set -e
-          cd "${{ secrets.SERVER_PATH }}"
+          cd "$HOME/TestingCICD/testing_ci_cd"
 
           git fetch origin master
           git reset --hard origin/master
@@ -58,4 +58,3 @@ jobs:
           php artisan config:cache
           php artisan route:cache
           php artisan view:cache
-          
